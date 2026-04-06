@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - University of Science and Applied Studies</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="admissions-page">
+
+    <header class="main-header">
+        <div class="container container--header">
+            <a href="index.html" class="logo-area">
+                <svg width="40" height="30" viewBox="0 0 60 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 0L0 12V14L30 26L60 14V12L30 0Z" fill="#13235B" />
+                </svg>
+                <div class="logo-text">
+                    <div class="university-name">University of Science</div>
+                    <div class="university-school">and Applied Studies</div>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="apply.html" class="active">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn btn--primary">Apply Now</a>
+        </div>
+    </header>
+
+    <section class="admissions-banner">
+        <div class="banner-flex">
+            <div class="banner-text">
+                <h1 class="admissions-title">Admissions</h1>
+                <p>Start your journey with University of Science and Applied Studies (USAS).<br>Fill out this form to
+                    apply</p>
+            </div>
+            <div class="banner-image">
+                <img src="images/graduation.jpg" alt="Graduates celebrating">
+            </div>
+        </div>
+    </section>
+    <div id="submission-popup" class="success-popup" style="display: none;">
+        <div class="popup-content">
+            <span class="emoji">😆</span>
+            <h2>Submitted!</h2>
+            <div class="timer-bar-success"></div>
+        </div>
+    </div>
+
+
+    <section class="form-section">
+        <div class="container">
+            <div class="admission-card">
+                <form action="#" class="admission-form">
+
+                    <h3 class="form-group-title">Student Information</h3>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="full-name">Full Name:</label>
+                            <input type="text" id="full-name" name="full-name">
+                        </div>
+                        <div class="input-group">
+                            <label for="dob">Date of Birth:</label>
+                            <input type="date" id="dob" name="dob">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Gender:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="male"> Male</label>
+                                <label><input type="radio" name="gender" value="female"> Female</label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="program">Program applying for</label>
+                            <input type="text" id="program" name="program">
+                        </div>
+                    </div>
+
+                    <h2 class="form-section-heading">Parent/Guardian Info</h2>
+
+                    <div class="input-group full-width">
+                        <label for="parent-name">Parent Name:</label>
+                        <input type="text" id="parent-name" name="parent-name">
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="parent-number">Number:</label>
+                        <input type="tel" id="parent-number" name="parent-number">
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="parent-email">Email address:</label>
+                        <input type="email" id="parent-email" name="parent-email">
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn--dark btn--submit">Submit the forms</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

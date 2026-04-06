@@ -1,0 +1,908 @@
+/* ============================================================
+   GLOBAL STYLES (Applies to all pages)
+   ============================================================ */
+
+:root {
+  /* Colors from Figma */
+  --primary-navy: #13235B;
+  --primary-gold: #B48F2A;
+  --secondary-navy: #1F3674;
+  --text-dark: #13235B;
+  --text-light: #414141;
+  /* Estimated dark grey for subtext */
+  --btn-outline-text: #1F3674;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  --bg-color: #FFFFFF;
+  --header-bg: #FFFFFF;
+
+  /* Fonts */
+  --heading-font: 'League Spartan', sans-serif;
+  --body-font: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Base Layout Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Global Button Styles */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: var(--body-font);
+}
+
+.btn--primary {
+  background-color: var(--primary-navy);
+  color: #FFFFFF;
+}
+
+.btn--dark {
+  background-color: var(--secondary-navy);
+  color: #FFFFFF;
+}
+
+.btn--outline {
+  border: 2px solid var(--btn-outline-text);
+  color: var(--btn-outline-text);
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   HEADER STYLES (Shared across all pages)
+   ============================================================ */
+.main-header {
+  background-color: var(--header-bg);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-navy);
+}
+
+.logo-text {
+  margin-left: 10px;
+  font-family: var(--heading-font);
+}
+
+.university-name {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.university-school {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--primary-navy);
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary-gold);
+}
+
+.btn--apply {
+  padding: 10px 20px;
+}
+
+/* ============================================================
+   HOMEPAGE SPECIFIC STYLES (index.html)
+   ============================================================ */
+
+/* Hero Section */
+.hero-home {
+  padding: 50px 0;
+}
+
+.container--hero {
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.hero-title {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.highlight-gold {
+  color: var(--primary-gold);
+}
+
+.hero-description {
+  color: var(--text-light);
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.btn--discover {
+  padding: 12px 30px;
+}
+
+.btn--contact {
+  padding: 12px 30px;
+}
+
+/* The complex curve for the hero image */
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Sophisticated Hero Image Styling --- */
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1 / 1;
+  /* Keeps it a perfect circle/square */
+
+  /* This creates the 'organic' circular shape */
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+
+  /* The "Slight color around it": 
+       We use multiple box-shadows to create the gold and navy rings 
+    */
+  box-shadow:
+    0 0 0 15px white,
+    /* Inner white gap */
+    0 0 0 20px var(--primary-gold),
+    /* The gold ring */
+    30px 0 50px rgba(19, 35, 91, 0.2);
+  /* Soft navy glow on the side */
+
+  overflow: hidden;
+  /* Clips the image into the shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the photo doesn't look stretched */
+  transform: scale(1.1);
+  /* Slightly zooms in to fill the organic shape */
+}
+
+/* Add a pseudo-element for that extra navy 'swoosh' if needed */
+.hero-image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border: 2px solid var(--primary-navy);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Feature Cards Section */
+.feature-section {
+  padding: 50px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon-wrapper {
+  margin-bottom: 20px;
+}
+
+.card-icon-wrapper img {
+  width: 50px;
+  height: auto;
+}
+
+.card-title {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--primary-navy);
+}
+
+/* Specific icon colors */
+.icon--blue path {
+  fill: var(--primary-navy);
+}
+
+.icon--gold path {
+  fill: var(--primary-gold);
+}
+
+/* ============================================================
+   RESPONSIVE MEDIA QUERIES
+   ============================================================ */
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .container--hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .hero-description {
+    margin: 0 auto 40px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-image {
+    border-radius: 200px;
+    /* Symmetrical for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    /* Hide standard nav; add burger menu later if needed */
+  }
+
+  .btn--apply {
+    display: none;
+  }
+
+  .logo-area {
+    margin: 0 auto;
+  }
+}
+
+
+/* ============================================================
+   ABOUT PAGE SPECIFIC STYLES
+   ============================================================ */
+
+.about-page {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('images/teaching.jpg');
+  /* Replace with your background image */
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 100px;
+}
+
+/* --- Background Image Scaling --- */
+.about-page .about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* Use 'cover' to ensure the image fills the background without stretching */
+  background: url('classroom-bg.jpg') no-repeat center center/cover;
+  padding-bottom: 100px;
+}
+
+/* --- The "Mail Box" / Toggle Container --- */
+.about-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.about-toggle-box {
+  background-color: #E0E0E0;
+  /* Light grey background for the "box" */
+  padding: 10px;
+  border-radius: 50px;
+  /* Makes it a pill/mail shape */
+  display: flex;
+  gap: 10px;
+  border: 1px solid #BDBDBD;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn {
+  padding: 12px 40px;
+  border: none;
+  border-radius: 40px;
+  font-family: var(--body-font);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #555;
+}
+
+/* The "Active" look (Our Mission) */
+.toggle-btn.active {
+  background-color: var(--primary-navy);
+  color: white;
+  box-shadow: 0px 4px 10px rgba(19, 35, 91, 0.3);
+}
+
+/* The "Inactive" look (Our History) */
+.toggle-btn:not(.active) {
+  background-color: #D9D9D9;
+  border: 1px solid #999;
+}
+
+.toggle-btn:hover {
+  transform: translateY(-1px);
+}
+
+
+
+/* The white angled shape at the top */
+.about-overlay-shape {
+  background-color: #FFFFFF;
+  padding: 80px 0 120px 0;
+  text-align: center;
+  /* This creates the slight "V" or angled cut at the bottom */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  margin-bottom: -60px;
+  /* Pulls the cards up into the shape */
+}
+
+.about-title {
+  font-family: var(--heading-font);
+  font-size: 64px;
+  color: var(--primary-navy);
+  margin-bottom: 40px;
+}
+
+.about-intro-text {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.about-toggle-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.btn--grey-outline {
+  border: 1.5px solid #000;
+  background-color: #D9D9D9;
+  color: #000;
+  padding: 10px 40px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Cards Grid */
+.container--about-cards {
+  position: relative;
+  z-index: 10;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: #FFFFFF;
+  border-radius: 40px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-card-icon {
+  margin-bottom: 20px;
+}
+
+.info-card-icon img {
+  width: 80px;
+  height: auto;
+}
+
+.info-card h2 {
+  font-family: var(--heading-font);
+  color: var(--primary-navy);
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: var(--secondary-navy);
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+/* Responsive adjustments for About Page */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-toggle-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .about-title {
+    font-size: 40px;
+  }
+}
+
+
+/* ============================================================
+   ADMISSIONS PAGE STYLES
+   ============================================================ */
+
+.admissions-banner {
+  background-color: #E6F2F8;
+  /* Light blue tint from screenshot */
+  overflow: hidden;
+}
+
+.banner-flex {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.banner-text {
+  flex: 1;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.admissions-title {
+  font-family: var(--heading-font);
+  font-size: 64px;
+  color: var(--primary-navy);
+  margin-bottom: 20px;
+}
+
+.banner-text p {
+  color: var(--primary-navy);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.banner-image {
+  flex: 1;
+  height: 400px;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Form Section */
+.form-section {
+  padding-bottom: 80px;
+}
+
+.admission-card {
+  background: #FFFFFF;
+  max-width: 800px;
+  margin: -80px auto 0;
+  /* Overlaps the banner */
+  padding: 40px 60px;
+  border: 1px solid #000;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.form-group-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.form-section-heading {
+  font-size: 32px;
+  font-family: var(--heading-font);
+  color: #000;
+  margin: 40px 0 20px 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #414141;
+}
+
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group input[type="tel"],
+.input-group input[type="email"] {
+  padding: 10px;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* Inner shadow from Figma */
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  padding-top: 5px;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn--submit {
+  padding: 10px 40px;
+  font-size: 18px;
+}
+
+/* Responsive Admissions */
+@media (max-width: 768px) {
+  .banner-flex {
+    flex-direction: column;
+  }
+
+  .banner-image {
+    display: none;
+  }
+
+  .admission-card {
+    margin: 20px 15px;
+    padding: 30px 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+
+
+/* ============================================================
+   CONTACT PAGE STYLES
+   ============================================================ */
+
+.contact-page .container {
+  padding-top: 40px;
+}
+
+.contact-main-title {
+  font-family: var(--heading-font);
+  font-size: 42px;
+  color: var(--primary-navy);
+  margin-bottom: 10px;
+}
+
+.contact-intro {
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.info-block {
+  margin-bottom: 40px;
+}
+
+.info-block h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.info-block p {
+  color: #000;
+  margin-bottom: 5px;
+}
+
+/* Form Container Styling */
+.contact-form-container {
+  border: 1px solid #000;
+}
+
+.message-form .form-header {
+  border-bottom: 1px solid #000;
+  padding: 15px;
+}
+
+.message-form .form-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.message-form .form-body {
+  padding: 20px;
+}
+
+.message-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #414141;
+}
+
+.message-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+/* Specific blue highlight for the subject field in your Figma */
+.input--blue-border {
+  border: 2px solid #3B99FC !important;
+}
+
+.form-map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-top: 1px solid #000;
+}
+
+/* Responsive Contact Page */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Greeting Pop-up Styling */
+.greeting-container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  border-radius: 50px;
+  box-shadow: 0 15px 40px rgba(0, 18, 83, 0.2);
+  z-index: 9999;
+  border: 1px solid #001253;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Animation: Slide down and Fade in */
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+.greeting-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.greeting-content i {
+  color: #001253;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.greeting-content h2 {
+  margin: 0;
+  color: #001253;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Optional: A thin bar at the bottom that shrinks over 30s */
+.timer-bar {
+  width: 100%;
+  height: 3px;
+  background: #001253;
+  margin-top: 10px;
+  border-radius: 5px;
+  animation: shrink 10s linear forwards;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+
+/* Success Pop-up Centering */
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  text-align: center;
+  border: 3px solid #13235B;
+  /* Matches your USAS logo color */
+  min-width: 300px;
+}
+
+.popup-content .emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.popup-content h2 {
+  color: #13235B;
+  font-family: 'League Spartan', sans-serif;
+}
+
+/* 10s Timer Bar */
+.timer-bar-success {
+  width: 100%;
+  height: 6px;
+  background: #13235B;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Animations */
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
